@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+    <link href="HojasEstilo/Mapa1.css" rel="stylesheet" type="text/css">
+  
+
+    <audio src="Soundtracks/Mapa1Soundtrack.ogg" autoplay loop></audio>
+  
+
+</head>
+<body>
+    <h1> Puntaje:<h1>
+    <div class="puntos" id="puntos" STYLE="top:325px; left:20px;"> </div>
+                
+    <div class="masterchif" id="masterchif" STYLE="position:absolute; top:325px; left:20px; display: 'inline';"> 
+       <img SRC="Movimientos/Caminar.gif" > 
+    </div>
+    
+    <div class="masterchifI" id="masterchifI" STYLE="position:absolute; top:325px; left:20px; display: 'none'; "> 
+       <img SRC="Movimientos/CaminarIzquierda.gif" > 
+    </div>
+    
+        
+
+<script>
+    let puntaje= document.getElementById("puntos");
+    let p=0;
+    let pelota = document.getElementById("masterchif");
+    let pelota2 = document.getElementById("masterchifI");
+    
+    let velocidad = 10;
+    let mTop = 0;
+    let mLeft = 0;
+    
+    document.addEventListener("keydown", function(e){
+        if (e.keyCode == "39") {
+            if (mLeft<920){
+                moverDerecha();
+            }
+            if (mLeft==920){
+                
+                document.getElementById('puntos').innerHTML=p++;
+            }
+            
+        }
+        
+        if (e.keyCode == "37") {
+            if (mLeft>1){
+                moverIzquierda();
+            }
+            
+            if (mLeft<200){
+                
+                document.getElementById('puntos').innerHTML=p--;
+            }
+            
+        }
+        
+        if (e.keyCode == "38") {
+            moverArriba();
+        }
+        
+        if (e.keyCode == "40") {
+            moverAbajo();
+        }
+        
+    })
+    
+    function moverDerecha(){
+        
+        mLeft += velocidad;
+        pelota.style.marginLeft = mLeft + "px";
+        
+        pelota.style.display = 'inline';
+        pelota2.style.display = 'none';
+  
+    }
+    
+    function moverIzquierda(){
+        
+        mLeft -= velocidad;
+        pelota2.style.marginLeft = mLeft + "px";
+        
+        pelota.style.display = 'none';
+        pelota2.style.display = 'inline';
+     }
+    
+     function moverArriba(){
+           }
+    
+    function moverAbajo(){
+        
+        
+    }
+    
+    
+    
+    
+</script>
+
+
+
+
+</body>
+</html>
